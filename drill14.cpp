@@ -7,13 +7,14 @@ class B1 {
 public:
     virtual void vf() { cout << "B1::vf()\n"; }
     void f() { cout << "B1::f()\n"; }
-    virtual void pvf() = 0; //teljesen virtuális, absztrakt, a class is absztrakt lesz, sõt a szármoztatott osztályok is
-                 //egészen addig ameddig ezt a függvényt nem irjuk felül a szármoztatott osztályban, nem példányosítható
+    virtual void pvf() = 0; //teljesen virtuÃ¡lis, absztrakt, a class is absztrakt lesz, sÃµt a szÃ¡rmoztatott osztÃ¡lyok is
+                 //egÃ©szen addig ameddig ezt a fÃ¼ggvÃ©nyt nem irjuk felÃ¼l a szÃ¡rmoztatott osztÃ¡lyban, nem pÃ©ldÃ¡nyosÃ­thatÃ³
 };
 
 class D1 : public B1 {
 public:
     void vf() { cout << "D1::vf()\n"; }
+    void f() { cout << "D1::f()\n"; }
 };
 
 class D2 : public D1 {
