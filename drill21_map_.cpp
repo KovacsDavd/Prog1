@@ -21,7 +21,8 @@ void read_map(map<T, C>& m, int n){
 	{
 		cout << "Enter a key, value pair: ";
 		cin >> key >> value;
-		m.insert(pair<T, C>(key, value));
+		m.insert(make_pair(key, value));
+		//m.insert(pair<T, C>(key, value));
 	}
 }
 
@@ -44,7 +45,7 @@ try{
 	print_map(msi);
 
 	cout << "map elements after remove: " << endl;
-	msi.erase("abc");
+	msi.erase("x");
 	print_map(msi);
 
 	cout << "map elements after remove all elements: " << endl;
@@ -68,7 +69,8 @@ try{
 	map<int, string> mis;
 
 	for(auto& a : msi){
-		mis.insert(pair<int, string>(a.second, a.first));
+		mis.insert(make_pair(a.second, a.first));
+		//mis.insert(pair<int, string>(a.second, a.first));
 	}
 	cout << "\nmis elements: " << endl;
 	print_map(mis);
