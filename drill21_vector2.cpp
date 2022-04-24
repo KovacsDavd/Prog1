@@ -8,7 +8,7 @@ using namespace std;
 
 template<typename T>
 void print(vector<T> v){
-	for(auto& a : v){
+	for(T a : v){
 		cout << a << endl;
 	}
 	cout << endl;
@@ -30,7 +30,7 @@ try{
 	cout << "vd elements: " << endl;
 	print(vd);
 
-	vector<int> vi(vd.size());
+	vector<int> vi(vd.size()); //nem fer bele a intbe a double, ezert a meretet megkell adni neki
 	// copy(vd.begin(), vd.end(), vi.begin());
 	for (int i = 0; i < vd.size(); ++i)
 	{
