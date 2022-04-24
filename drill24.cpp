@@ -27,7 +27,7 @@ try{
 	Matrix<int, 3> e(10, 10, 10);
 
 	cout << "\nMatrix sizes: \n"; //Nem mindnek van szuksege hogy memoriaba keruljon
-	cout << "1D int, 10 elements \t\t" << sizeof(a) << endl;
+	cout << "1D int, 10 elements \t\t" << sizeof(a) << endl; //memoria méret
 	cout << "1D int, 100 elements \t\t" << sizeof(b) << endl;
 	cout << "1D double, 10 elements \t\t" << sizeof(c) << endl;
 	cout << "2D int, 10x10 elements \t\t" << sizeof(d) << endl;
@@ -69,18 +69,19 @@ try{
 
 	Matrix<int, 2> m3(n2, m2);
 
-	for (int i = 0; i < n2/*m3.dim1()*/; ++i) //Index = Mátrix saját LONG tipusa
+	for (int i = 0; i < m3.dim1(); ++i) //Index = Mátrix saját LONG tipusa
 	{
-		for (int j = 0; j < m2 /*m3.dim2()*/; ++j)
+		for (int j = 0; j < m3.dim2(); ++j)
 		{
 			m3(i, j) = (i+1)*(j+1);
 			cout << '\t' << m3(i, j);
 		}
+		cout << endl;
 	}
 	cout << endl;
 
 	Matrix<complex<double>> m4(10); //Matrix complex szamokat tartalmaz es double a tipusparametere
-	cout << "\nEnter 10 complex numbers (Re, Im): ";
+	cout << "\nEnter 10 complex numbers (Real, Imaginary): ";
 	complex<double> comp;
 	for (int i = 0; i < 10; ++i)
 	{
@@ -98,7 +99,7 @@ try{
 	}
 	cout << "Sum: " << sum << endl;
 
-	Matrix<int, 2> mi(2,3);
+	Matrix<int, 2> mi(2,3); //2D mátrix 2*3-as
     int number;
     for (int i = 0; i < mi.dim1(); ++i){
         for(int j = 0; j < mi.dim2(); ++j){
