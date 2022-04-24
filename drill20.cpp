@@ -24,8 +24,9 @@ void print(T& p){
 
 template<typename Iter1, typename Iter2>
 Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2){
-	for(Iter1 p=f1; p!=e1; ++p){
-		*f2=*p;
+	while(f1!=e1){
+		*f2=*f1; // *(érték-'acces')
+		f1++; //++: következő elemre mutat
 		f2++;
 	}
 	return f2;
@@ -72,11 +73,7 @@ int main(){
 	array<int, size> arr2 = arr;
 	vector<int> vec2 = vec;
 	list<int> ls2 = ls;
-/*
-	copy(begin(arr), end(arr), begin(arr2));
-	copy(vec.begin(), vec.end(), back_inserter(vec2));
-	copy(ls.begin(), ls.end(), back_inserter(ls2));
-*/
+
 	cout << "Array2 elements: ";
 	for(auto& a : arr2){
 		cout << a << " ";
@@ -107,7 +104,7 @@ int main(){
 	print(ls2);
 	cout << endl;
 
-	my_copy(arr2.begin(), arr2.end(), vec2.begin());
+	my_copy(arr2.begin(), arr2.end(), vec2.begin()); //Mit meddig hova
 	my_copy(ls2.begin(), ls2.end(), arr2.begin());
 
 	cout << "Array2 after copy: ";
@@ -118,8 +115,8 @@ int main(){
 	print(ls2);
 	cout << endl;
 
-	vector<int>::iterator vit;
-	vit = find(vec2.begin(), vec2.end(), 3);
+	vector<int>::iterator vit; //vector<int> tipusu iterator
+	vit = find(vec2.begin(), vec2.end(), 3); //visszaadja hogy hanyadik helyen van 
 	cout << "Is the vector contain the 3?\n";
 
 	if(vit != vec2.end()){
