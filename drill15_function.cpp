@@ -12,10 +12,10 @@ double sloping_cos(double x) {return cos(x) + slope(x);}
 
 
 int main(){
-	Simple_window win{Point{500,250}, 600, 600, "Function graphs"};
-	win.wait_for_button();
+	Simple_window win{Point{500,250}, 600, 600, "Function graphs"}; //600*600-as ablak jön létre  Function graphs néven, Pointnál kezdődik
+	win.wait_for_button(); //gomb nyomásra vár
 
-	Axis xa{Axis::x, Point{100,300}, 400, 20, "x axis"};
+	Axis xa{Axis::x, Point{100,300}, 400, 20, "x axis"}; //x tengely Point-nál kezdődik, 400px hosszú, 20 bevágás
 	xa.set_color(Color::red);
 	win.attach(xa);
 
@@ -25,8 +25,6 @@ int main(){
 
 	win.set_label("1==20pixels");
 	win.wait_for_button();
-
-	//Function func(one, -10, 11, Point{300, 300}, 400, 20, 20);
 	
 	int x_scale = 20;
 	int y_scale = 20;
@@ -35,6 +33,7 @@ int main(){
 	Point point = Point{300, 300};
 	int length = 400;
 
+	//function: one fg, range:min-max(x), Point-nél kezdődik, lengt hosszu(px), x_sclale, y_scale: ennyivel van beszorozva az x-y érték
 	Function func(one, min_range, max_range, point, length, x_scale, y_scale);
 	Text tslope(Point{100, 270}, "x");
 	win.attach(tslope);
