@@ -15,7 +15,7 @@ struct Item
 	int iid;
 	double value;
 
-	Item(string n, int i, double v) : name{n}, iid{i}, value{v} {}
+	Item(string n, int i, double v) : name{ n }, iid{ i }, value{ v } {}
 };
 
 //Functor: Osztály, van neki ()tulterhelés---egyik fgv a ()tulterhelés(int a, int b)
@@ -106,11 +106,13 @@ int main() {
 		cout << "Order By Value: " << endl;
 		print_vector(vi);
 
-	/*	Item h("horse shoe", 99, 12.34);
-		Item c("Canon S400", 9988, 499.95);*/
+		/*	Item h("horse shoe", 99, 12.34);
+			Item c("Canon S400", 9988, 499.95);*/
 
 		vi.push_back({ "horse shoe", 99, 12.34 });
 		vi.push_back({ "Canon S400", 9988, 499.95 });
+		cout << "After insert: " << endl;
+		print_vector(vi);
 
 		string ee = "horse shoe";
 		string re = "r";
@@ -125,7 +127,7 @@ int main() {
 				vi.erase(vi.begin() + i);
 			}
 		}
-		
+
 		cout << "After remove by name: " << endl;
 		print_vector(vi);
 
@@ -147,7 +149,7 @@ int main() {
 		print_vector(vi);
 
 		//////////////LIST//////////////////////////
-
+		cout << "----------------LIST----------------";
 		list<Item> li;
 		string file_name2{ "ten_int.txt" };
 		ifstream ifs2{ file_name2 };
@@ -161,11 +163,11 @@ int main() {
 
 		cout << "\nli elements: " << endl;
 		print_list(li);
-		
+
 		li.sort(comp_name());
 		cout << "Order By Name: " << endl;
 		print_list(li);
-		
+
 		li.sort(comp_id());
 		cout << "Order By ID: " << endl;
 		print_list(li);
@@ -174,20 +176,17 @@ int main() {
 		cout << "Order By Value: " << endl;
 		print_list(li);
 
-		/*	Item h("horse shoe", 99, 12.34);
-			Item c("Canon S400", 9988, 499.95);*/
-
 		li.push_back({ "horse shoe", 99, 12.34 });
 		li.push_back({ "Canon S400", 9988, 499.95 });
 
 		ee = "horse shoe";
 		re = "r";
 
-		list<Item>::iterator lit = find_if(li.begin(), li.end(), find_name(ee));
+		list<Item>::iterator lit = find_if(li.begin(), li.end(), find_name(ee)); //Itemet tartalmazó lista tipusú iterátor
 		li.erase(lit);
 		lit = find_if(li.begin(), li.end(), find_name(re));
 		li.erase(lit);
-		
+
 		cout << "After remove by name: " << endl;
 		print_list(li);
 
