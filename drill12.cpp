@@ -7,12 +7,12 @@ using namespace Graph_lib;
 
 int main(){
 try {
-		Simple_window win{Point{100,100}, 600, 400, "My windows"}; //600*400-as ablak jön létre My window ellen, TL:200-200-nál kezdődik
-		win.wait_for_button();
+		Simple_window win{Point{100,100}, 600, 400, "My windows"}; //600*400-as ablak jön létre My window néven, TL:100-100-nál kezdődik
+		win.wait_for_button(); //gomb nyomásra vár
 
 		Axis xa{Axis::x, Point{50,300}, 500, 10, "x axis"}; //x tengely 50-300-nál kezdődik, 500px hosszú, 10 bevágás
-		win.attach(xa);
-		win.set_label("My window #2");
+		win.attach(xa); //hozzácsatolja 'xa'-t a 'win' ablakhoz
+		win.set_label("My window #2"); //cím beállítása
 		win.wait_for_button();
 
 		Axis ya{Axis::y, Point{50,300}, 280, 10, "y axis"};
@@ -76,11 +76,11 @@ try {
 		win.set_label("My window #10");
 		win.wait_for_button();
 
-		ii.move(100,200);
+		ii.move(100,200); //az eredeti helyről ennyivel tolja arrébb
 		win.set_label("My window #11");
 		win.wait_for_button();
 
-		Circle c{Point{100, 200}, 50};
+		Circle c{Point{100, 200}, 100};
 		Ellipse e{Point{100, 200}, 75, 25};
 		e.set_color(Color::cyan);
 		Mark m{Point{100, 200}, 'P'};
@@ -91,7 +91,7 @@ try {
     	Text sizes {Point{100,20},oss.str()};
 
     	Image cal{Point{225, 225}, "badge.jpg"};
-    	cal.set_mask(Point{40, 40}, 300, 100); //levágja a képet
+    	cal.set_mask(Point{40, 40}, 300, 100); //eredeti képhez nézve: 40-40 helyre teszi, levágja 300*100-as ra
 
 		win.attach(c);
 		win.attach(m);
