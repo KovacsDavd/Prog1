@@ -63,19 +63,13 @@ int main(){
   S<double> sd{3.2};
   S<string> ss{"alma"};
   S<vector<int>> svi{vector<int>{10, 2, 5}};
- /* 
-  cout << si.val << endl;
-  cout << sc.val << endl;
-  cout << sd.val << endl;
-  cout << ss.val << endl;
-  cout << svi.val << endl;*/
 
   cout <<"S<int>: "<< si.get() << endl;
   cout <<"S<cahr>: "<< sc.get() << endl;
   cout <<"S<double>: "<< sd.get() << endl;
   cout <<"S<string>: "<< ss.get() << endl;
   cout <<"S<vector<int>>: ";
-  for(auto& a : svi.get()){
+  for(auto& a : svi.get()){ 
     cout << a << ' ';
   }
   cout << endl;
